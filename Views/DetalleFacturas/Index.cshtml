@@ -1,0 +1,94 @@
+﻿@model IEnumerable<FacturaDouglas.Models.DetalleFactura>
+
+@{
+    ViewBag.Title = "Detalle facturas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio_unitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descuento_porcentaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descuento_valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iva_porcentaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iva_valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subtotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_linea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Factura.numero_factura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio_unitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descuento_porcentaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descuento_valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iva_porcentaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iva_valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subtotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_linea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Factura.numero_factura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_detalle }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_detalle }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_detalle })
+        </td>
+    </tr>
+}
+
+</table>

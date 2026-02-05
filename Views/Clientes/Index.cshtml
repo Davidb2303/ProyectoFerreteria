@@ -1,0 +1,97 @@
+﻿@model IEnumerable<FacturaDouglas.Models.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <button type="button" class="btn btn-dark">
+        @Html.ActionLink("Create New", "Create")
+    </button>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_razon_social)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero_documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_razon_social)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero_documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td class="offset-10" >
+            <button type="button" class="btn btn-info btn-sm">@Html.ActionLink("Modificar", "Edit", new { id = item.id_cliente} ) </button> 
+            <button type="button" class="btn btn-success btn-sm"">@Html.ActionLink("Detalles", "Details", new { id = item.id_cliente }) </button>
+            <button type="button" class="btn btn-danger btn-sm"">@Html.ActionLink("Eliminar", "Delete", new { id = item.id_cliente }) </button>
+        </td>
+    </tr>
+}
+
+</table>
