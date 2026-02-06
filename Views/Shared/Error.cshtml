@@ -6,4 +6,26 @@
 
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">Error al procesar la solicitud.</h2>
+@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<section class="error-page container" role="alert" aria-labelledby="errorTitle">
+    <header>
+        <h1 id="errorTitle" class="error-title">Ups — Algo salió mal</h1>
+        <p class="lead">No hemos podido completar tu solicitud. Por favor intenta lo siguiente:</p>
+    </header>
+    <ul class="error-steps">
+        <li>Recarga la página (F5) o intenta más tarde.</li>
+        <li>Si el problema persiste, contacta con soporte indicando la acción que estabas realizando.</li>
+    </ul>
+    <div class="error-details">
+        <strong>Ruta:</strong> @Model?.ControllerName/@Model?.ActionName
+    </div>
+    <p>
+        @Html.ActionLink("Volver al inicio", "Index", "Home", null, new { @class = "btn btn-primary" })
+    </p>
+</section>
 

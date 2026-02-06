@@ -1,0 +1,146 @@
+/* site-improved.css
+   Paleta: azul profundo (primario), naranja acento, grises neutrales.
+   Tipografía: Inter (desde Google Fonts en layout)
+*/
+:root{
+  --primary-700: #0b4f6c; /* azul profundo */
+  --primary-500: #117a8b;
+  --accent: #ff7a18; /* naranja */
+  --muted: #6c757d;
+  --surface: #ffffff;
+  --bg: #f6f9fb;
+  --card-shadow: 0 6px 18px rgba(11,79,108,0.08);
+  --radius: 8px;
+}
+
+html,body{
+  height:100%;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: #222;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header */
+.site-header{
+  background: linear-gradient(90deg, rgba(11,79,108,0.95), rgba(17,122,139,0.95));
+  color: #fff;
+  padding: 10px 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:inherit;
+}
+.brand-logo{
+  border-radius:6px;
+  box-shadow: var(--card-shadow);
+}
+.brand-title{
+  font-size:1.4rem;
+  font-weight:700;
+}
+.brand-sub{
+  display:block;
+  font-size:0.75rem;
+  opacity:0.9;
+}
+
+.main-nav{margin-left:24px;flex:1}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center}
+.nav-list .nav-link{color:rgba(255,255,255,0.92);text-decoration:none;padding:8px 10px;border-radius:6px}
+.nav-list .nav-link:hover{background:rgba(255,255,255,0.06)}
+
+.header-actions{display:flex;align-items:center;gap:8px}
+.login-partial .auth-links .nav-link{color:rgba(255,255,255,0.95);margin-right:8px}
+.user-info{display:flex;gap:12px;align-items:center}
+.user-link{color:#fff;text-decoration:none;font-weight:600}
+.logout-btn{background:transparent;border:1px solid rgba(255,255,255,0.18);color:#fff;padding:6px 10px;border-radius:6px}
+.logout-btn:hover{background:rgba(255,255,255,0.06)}
+
+/* Main container */
+.main-content{padding:28px 16px;max-width:1100px}
+.container{width:100%;margin-right:auto;margin-left:auto;padding-left:12px;padding-right:12px}
+
+/* Cards */
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--card-shadow);padding:18px}
+
+.page-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.toolbar{display:flex;gap:12px;align-items:center}
+.search-form input[type=search]{padding:8px;border-radius:6px;border:1px solid #e6ecf0}
+.search-form button{margin-left:6px}
+
+/* Auth pages */
+.auth-page .page-title{font-size:1.6rem;margin-bottom:12px;color:var(--primary-700)}
+.auth-grid{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+.auth-form{padding:20px}
+.form-compact .form-label{display:block;margin:10px 0 6px;font-weight:600}
+.form-control{width:100%;padding:10px 12px;border:1px solid #e6ecf0;border-radius:6px;background:#fff}
+.form-control:focus{outline:none;border-color:var(--primary-500);box-shadow:0 6px 14px rgba(17,122,139,0.08)}
+.form-intro{color:var(--muted);margin-bottom:10px}
+.form-errors{color:#b94a48;background:#fff5f5;padding:8px;border-radius:6px}
+.field-error{color:#b94a48;font-size:0.9rem}
+.muted{color:var(--muted)}
+.btn{display:inline-block;padding:8px 14px;border-radius:6px;border:0}
+.btn-primary{background:var(--primary-700);color:#fff}
+.btn-primary:hover{background:var(--primary-500)}
+.btn-block{width:100%}
+
+/* Footer */
+.site-footer{padding:18px 0;background:#fff;border-top:1px solid #eef3f6;margin-top:28px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:0.95rem;color:var(--muted)}
+.footer-inner a{color:var(--primary-700);text-decoration:none}
+
+/* Error page */
+.error-page{padding:28px}
+.error-title{color:var(--primary-700);font-size:1.8rem}
+.error-steps{margin:12px 0;color:var(--muted)}
+.error-details{margin-top:10px;color:#444}
+
+/* Responsive */
+@media(max-width:900px){
+  .auth-grid{grid-template-columns:1fr;}
+  .main-nav{display:none}
+  .header-inner{justify-content:space-between}
+  .brand-sub{display:none}
+  .footer-inner{flex-direction:column;gap:8px}
+}
+
+/* Tables and lists improvements for index views */
+.table{width:100%;border-collapse:collapse;background:var(--surface)}
+.table th{background:#f1f6f9;padding:10px;text-align:left}
+.table td{padding:10px;border-top:1px solid #f1f4f7}
+
+/* Colored rows for quick-panel */
+.table.table-striped tbody tr:nth-child(odd){background:#ffffff}
+.table.table-striped tbody tr:nth-child(even){background:#fbfdfe}
+.row-highlight{background:linear-gradient(90deg, rgba(17,122,139,0.04), rgba(255,122,24,0.02));}
+.row-muted{opacity:0.92}
+
+/* Small button variants */
+.btn-sm{padding:6px 8px;font-size:0.9rem;border-radius:6px}
+.btn-outline-dark{background:transparent;border:1px solid #d6dfe6;color:#23303a}
+.btn-outline-dark:hover{background:#f1f6f9}
+.btn-primary{background:var(--primary-700);color:#fff;border:1px solid rgba(0,0,0,0.03)}
+.btn-primary.btn-sm{padding:6px 10px}
+
+
+/* Utility */
+.text-danger{color:#b94a48}
+.shadow-sm{box-shadow:0 4px 10px rgba(11,79,108,0.06)}
+
+/* small helpers */
+.space-between{display:flex;justify-content:space-between;align-items:center}
+.form-row{margin-top:12px}
+
+/* Improve forms inside scaffolded views (Index/Create/Edit) */
+.form-horizontal .form-group{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.form-horizontal .form-group label{width:180px;font-weight:600}
+.form-horizontal .form-group .form-control{flex:1}
