@@ -1,6 +1,8 @@
 pipeline {
   agent any
-
+  tools {
+        dotnetsdk 'dotnet-sdk' // El nombre que le pusiste en la configuración
+    }
   stages {
     stage('Checkout') {
       steps {
