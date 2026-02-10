@@ -11,7 +11,8 @@ namespace FacturaDouglas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Factura
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -34,9 +35,10 @@ namespace FacturaDouglas.Models
         public string notas { get; set; }
         public System.DateTime fecha_creacion { get; set; }
         public System.DateTime fecha_modificacion { get; set; }
-    
+        [Required(ErrorMessage = "El cliente es obligatorio")]
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [Required]
         public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }
     }
 }

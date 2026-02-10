@@ -2,13 +2,13 @@ pipeline {
   agent any
 
   stages {
-    stage('Restore') {
+    stage('Checkout') {
       steps {
-        sh 'dotnet restore'
+          git 'https://github.com/Davidb2303/ProyectoFerreteria.git' 
       }
     }
 
-    stage('Test') {
+    stage('Build') {
       steps {
         sh 'dotnet test --configuration Release'
       }

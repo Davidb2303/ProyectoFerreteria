@@ -8,10 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    <button type="button" class="btn btn-dark">
-        @Html.ActionLink("Create New", "Create")
-    </button>
-    @Html.ActionLink("Create New", "Create")
+   @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -86,10 +83,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.estado)
         </td>
-        <td class="offset-10" >
-            <button type="button" class="btn btn-info btn-sm">@Html.ActionLink("Modificar", "Edit", new { id = item.id_cliente} ) </button> 
-            <button type="button" class="btn btn-success btn-sm"">@Html.ActionLink("Detalles", "Details", new { id = item.id_cliente }) </button>
-            <button type="button" class="btn btn-danger btn-sm"">@Html.ActionLink("Eliminar", "Delete", new { id = item.id_cliente }) </button>
+        <td class="offset-10">
+            @Html.ActionLink("Ver", "Details", new { id = item.id_cliente }, new { @class = "btn btn-sm btn-outline-dark" })
+            @Html.ActionLink("Editar", "Edit", new { id = item.id_cliente }, new { @class = "btn btn-sm btn-primary" })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_cliente }, new { @class = "btn btn-sm btn-outline-dark" })
+
         </td>
     </tr>
 }

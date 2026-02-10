@@ -11,13 +11,15 @@ namespace FacturaDouglas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DetalleFactura
     {
         public int id_detalle { get; set; }
         public int id_factura { get; set; }
         public int id_producto { get; set; }
         public string descripcion { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser mayor a cero")]
         public decimal cantidad { get; set; }
         public decimal precio_unitario { get; set; }
         public Nullable<decimal> descuento_porcentaje { get; set; }
@@ -25,9 +27,11 @@ namespace FacturaDouglas.Models
         public Nullable<decimal> iva_porcentaje { get; set; }
         public Nullable<decimal> iva_valor { get; set; }
         public decimal subtotal { get; set; }
+        [Range(0.01, double.MaxValue, ErrorMessage = "El total del detalle debe ser positivo")]
         public decimal total_linea { get; set; }
     
         public virtual Factura Factura { get; set; }
+        [Required]
         public virtual Producto Producto { get; set; }
     }
 }
